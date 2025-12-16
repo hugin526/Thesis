@@ -1,0 +1,76 @@
+1. 🇯🇵 cybersecurity collection.py
+
+Japanese National Diet – Cyber-only corpus
+Data source
+National Diet Library API: https://kokkai.ndl.go.jp/
+
+What the script does:
+Queries Diet debates using the any (全文検索) parameter
+Filters speeches containing cyber-related terms (e.g.:cyber, サイバー, サイバーセキュリティ, cybersecurity)
+
+Automatically paginates using nextRecordPosition
+Deduplicates speeches using speechID
+Outputs a single, cleaned cyber-only corpus
+
+Output
+FINAL.CYBER.speeches.tsv
+One row per speech
+UTF-8 encoded, tab-separated
+Suitable for Voyant Tools, Excel, KH Coder, or Python analysis
+Key methodological note
+This script does not download full Diet debates.
+Only speeches explicitly framed using cyber language are included.
+
+2. 🇬🇧 UK cyber filter.py
+
+UK Parliament (Hansard) – Cyber-only corpus
+Data source
+UK Hansard XML (ParlParse format)
+
+Typically includes:
+House of Lords debates
+(Configurable for Commons / Westminster Hall if needed)
+
+What the script does
+Parses local Hansard XML files
+Filters speeches containing: cyber, cybersecurity, cyber security
+
+
+Filters by date range (default: 2015–2025)
+Deduplicates by speech ID
+Separates speech text from metadata
+ 
+Outputs
+speeches.tsv
+DocID, text
+metadata.tsv
+id, date, house, member, party, debate_type, heading, file
+Both outputs are UTF-8, tab-separated.
+
+Comparative Design Rationale
+Both scripts apply keyword-based filtering at the data-collection stage, rather than collecting full parliamentary debates and filtering later.
+Advantages
+Ensures cross-national comparability
+Focuses analysis on explicit cybersecurity framing
+Reduces noise from unrelated financial or political discourse
+Makes large-scale text analysis computationally feasible
+Known limitations
+Financial cybersecurity discourse is captured only when explicitly framed as “cyber”
+Implicit or adjacent discussions (e.g. fraud, payments, operational risk without cyber language) may be excluded
+These limitations are acknowledged and addressed in the methodology and discussion chapters of the thesis.
+
+Intended Use
+The resulting datasets are designed for:
+Word frequency analysis
+Collocation and co-occurrence analysis
+Trend analysis over time
+Thematic categorisation (e.g. risk governance, systemic risk, regulation)
+Comparative discourse analysis between Japan and the UK
+
+Reproducibility Notes
+Both scripts:
+Use UTF-8 encoding
+Are deterministic given the same inputs and date ranges
+Can be rerun to update datasets for future years
+
+Date ranges and keyword lists can be modified directly in each script
