@@ -48,5 +48,6 @@ with open("FINAL.CYBER.speeches.tsv", "w", encoding="utf-8", newline="") as f:
     w.writerow(["DocID", "text"])
     w.writerows(speeches)
 
-print(f"✅ Finished. Saved {len(speeches)} speeches to FINAL.CYBER.speeches.tsv")
+print(f" Finished. Saved {len(speeches)} speeches to FINAL.CYBER.speeches.tsv")
+
 
