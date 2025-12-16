@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Filter & combine UK Hansard (ParlParse XML) speeches that contain:
   "cyber", "cybersecurity", "cyber security"  (case-insensitive)
