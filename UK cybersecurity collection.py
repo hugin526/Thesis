@@ -22,7 +22,7 @@ from bs4 import BeautifulSoup
 DEFAULT_START = "2015-01-01"
 DEFAULT_END   = "2025-09-30"
 KEYWORDS = [r"\bcyber\b", r"\bcybersecurity\b", r"\bcyber security\b"]
-SUBDIRS = ["lords"]  # change to ["debates"] if you only want Commons
+SUBDIRS = ["debates"]  # change to ["debates"] if you only want lords
 # --------------------------------
 
 FNAME_DATE_RE = re.compile(r"(?:debates|lords|westminhall)(\d{4})-(\d{2})-(\d{2})", re.I)
@@ -151,3 +151,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
